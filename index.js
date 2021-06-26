@@ -8,6 +8,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get(/^\/$/, (req, res) => {
+  res.send("Moderation Service");
+});
+
 app.post("/events", async (req, res) => {
   const { type, data } = req.body;
 
